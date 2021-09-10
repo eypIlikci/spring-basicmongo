@@ -4,8 +4,11 @@ import com.basicmongo.domain.model.PostModel;
 import lombok.Data;
 import lombok.experimental.SuperBuilder;
 
+import javax.validation.constraints.NotNull;
+
 @SuperBuilder
 @Data
 public class AuthorUpdateRequest extends PostModel {
+    @NotNull
     private String id;
 }

@@ -8,14 +8,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 public interface PublisherOperations {
     @GetMapping("publisher/{id}")
-    ResponseEntity<?> getById(@PathVariable("id") String id, HttpSession session);
+    ResponseEntity<?> getById(@Valid  @PathVariable("id") String id, HttpSession session);
     @PostMapping("publisher")
-    ResponseEntity<?> save(@RequestBody PublisherCreateRequest request);
+    ResponseEntity<?> save(@Valid @RequestBody PublisherCreateRequest request);
     @PutMapping("publisher")
-    ResponseEntity<?> update(@RequestBody PublisherUpdateRequest request);
+    ResponseEntity<?> update(@Valid @RequestBody PublisherUpdateRequest request);
     @GetMapping("publisher")
     ResponseEntity<?> get(Pageable pageable);
 

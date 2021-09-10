@@ -2,6 +2,7 @@ package com.basicmongo.domain.model.search;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @Data

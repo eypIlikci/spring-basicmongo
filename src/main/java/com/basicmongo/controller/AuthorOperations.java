@@ -8,14 +8,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 public interface AuthorOperations {
     @GetMapping("author/{id}")
-    ResponseEntity<?> getById(@PathVariable("id") String id, HttpSession session);
+    ResponseEntity<?> getById(@Valid @PathVariable("id") String id, HttpSession session);
     @PostMapping("author")
-    ResponseEntity<?> save(@RequestBody AuthorCreateRequest request);
+    ResponseEntity<?> save(@Valid @RequestBody AuthorCreateRequest request);
     @PutMapping("author")
-    ResponseEntity<?> update(@RequestBody AuthorUpdateRequest request);
+    ResponseEntity<?> update(@Valid @RequestBody AuthorUpdateRequest request);
     @GetMapping("author")
     ResponseEntity<?> get(Pageable pageable);
 

@@ -1,15 +1,10 @@
 package com.basicmongo.domain.model.convert;
 
-import com.basicmongo.domain.Author;
-import com.basicmongo.domain.Book;
-import com.basicmongo.domain.Magazine;
-import com.basicmongo.domain.Publisher;
-import com.basicmongo.domain.model.request.BookCreateRequest;
-import com.basicmongo.domain.model.request.BookUpdateRequest;
-import com.basicmongo.domain.model.request.MagazineCreateRequest;
-import com.basicmongo.domain.model.request.MagazineUpdateRequest;
+import com.basicmongo.domain.*;
+import com.basicmongo.domain.model.request.*;
 import com.basicmongo.domain.model.response.BookResponse;
 import com.basicmongo.domain.model.response.MagazineResponse;
+import com.basicmongo.domain.model.response.UserResponse;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -69,6 +64,19 @@ public class Convertor {
                 .createDate(book.getCreateDate())
                 .authorId(book.getAuthor()!=null ?book.getAuthor().getId():null)
                 .publisherId(book.getPublisher()!=null ?book.getPublisher().getId():null)
+                .build();
+    }
+    public User convert(UserCreateRequest request){
+        return User.builder()
+                .password(request.getPassword())
+                .username(request.getUsername())
+                .build();
+    }
+
+    public UserResponse convert(User  user){
+        return UserResponse.builder()
+                .id(user.getId())
+                .username(user.getUsername())
                 .build();
     }
 

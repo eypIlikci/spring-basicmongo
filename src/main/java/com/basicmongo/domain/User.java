@@ -1,5 +1,6 @@
 package com.basicmongo.domain;
 
+import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -9,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
+@Builder
 @Data
 @Document
 public class User implements UserDetails {
